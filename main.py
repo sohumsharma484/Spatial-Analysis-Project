@@ -67,5 +67,5 @@ for colorOption in colorOptions:
 
     colorNum += 1
 
-coordinatesDb.to_csv("extractPolygonsByColor.csv", index=False)
+coordinatesDb.to_csv("output.csv", index=False)
 coordinatesDb.to_sql('coordinates', con, index=False, if_exists='replace')
