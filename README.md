@@ -1,1 +1,6 @@
 # Spatial-Analysis-Project
+
+This program takes an annotated image from the ISH database of the Ivy Glioblastoma Atlas Project and outputs a database and CSV file with all the boundaries of the different regions. The output is portrayed in the following columns: x, y, shapeID, colorNum, color. The x and y columns correspond to the x and y coordinates of the vertices corresponding to the different regions. The shapeID is the boundary number of a certain classification since each classification usually contains more than one shape. The colorNum (integer representation) and color (string representation) represent the classifications by the colors portrayed in the inputed image. See the attached CSV file for sample output. Current color classifications supported include Black, Light Blue, Blue, Green, Pink, and Red. 
+
+To run the program add the path (absolute if in a different folder) of the annotated image from the ISH database to the IMAGEPATH variable at the top of the file. Then, ensure cv2, numpy, pandas, and sqlite3 libraries are installed on your system and run the python file. An output.CSV and system.db files will be created with the data representing the different boundaries. 
+
