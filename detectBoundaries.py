@@ -7,13 +7,7 @@ def detectBoundaries(imagePath):
     image = cv2.imread(imagePath)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    # Create coordinate dataframe
-    coordinatesDb = pd.DataFrame({
-        'x': [],
-        'y': [],
-        'shapeID': [],
-        'color': [],
-    })
+    coordinatesList = []
 
 
     colorOptions = [
@@ -48,12 +42,11 @@ def detectBoundaries(imagePath):
                 if (i % 2 == 0):
                     x = n[i]
                     y = n[i + 1]
-                    row = {"x": x, "y": y, "shapeID": polyNum, "color": colorOption[0]}
-                    coordinatesDb = coordinatesDb.append(row, ignore_index=True)
+                    coordinatesList.append([x, y, polyNum, colorOption[0]])
                 i += 1
 
             polyNum += 1
         cv2.imwrite("mask.jpg", mask)
 
-
-    coordinatesDb.to_csv(f"{imagePath[:-4]}_boundaries.csv", index=False)
+    df = pd.DataFrame(coordinatesList, columns=["x", "y", "shapeID", "region"])
+    df.to_csv(f"{imagePath[:-4]}_boundaries.csv", index=False)
