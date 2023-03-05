@@ -1,5 +1,3 @@
-install.packages("spatstat")
-install.packages("rlist")
 library (spatstat)
 library("rlist")
 
