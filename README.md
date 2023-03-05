@@ -7,12 +7,15 @@ Installation:
   1. Download this GitHub repository
   2. Download QuPath
      https://github.com/qupath/qupath/releases/tag/v0.4.3
-     Make sure to download the .zip version and exteact the contents
+     Make sure to download the .zip version and extract the contents
   3. Run the following commands in the command prompt (or any terminal) in the same directory as this repository to install the necessary dependencies
      pip install -r requirements.txt
      pip install lxml
   4. Download R
      https://cran.r-project.org/bin/windows/base/
+  5. Run the following R commands
+     install.packages("spatstat")
+     install.packages("rlist")
 
 Running the application:
 1. Update the tissueSubBlock, QuPathAbsPath, RscriptAbsPath, and currentDirectory variables in the top of the main.py file to the desired values.
